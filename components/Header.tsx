@@ -17,15 +17,21 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      if (typeof window !== 'undefined') {
+        setIsScrolled(window.scrollY > 20)
+      }
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', handleScroll)
+      return () => window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
   // Fermer le menu au clic en dehors
   useEffect(() => {
+    if (typeof window === 'undefined') return
+    
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden'
     } else {

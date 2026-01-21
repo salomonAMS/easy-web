@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { Sparkles, Zap, Brain, Workflow, Target, Rocket } from 'lucide-react'
 
@@ -35,12 +35,14 @@ function TiltCard({ service, index }: { service: Service; index: number }) {
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-17.5deg', '17.5deg'])
   
   // Détection mobile au montage
-  useState(() => {
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
     checkMobile()
     window.addEventListener('resize', checkMobile)
     return () => window.removeEventListener('resize', checkMobile)
-  })
+  }, [])
   
   /**
    * Gère le mouvement de la souris pour créer l'effet tilt
