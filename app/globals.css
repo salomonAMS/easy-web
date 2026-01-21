@@ -19,6 +19,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Masquer l'indicateur Next.js en développement */
+#__next-build-watcher {
+  display: none !important;
+}
+
+nextjs-portal {
+  display: none !important;
+}
+
 /* Light mode card effect */
 .light-card {
   background: #ffffff;

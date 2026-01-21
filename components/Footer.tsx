@@ -170,7 +170,7 @@ export default function Footer() {
 
         {/* Barre de séparation */}
         <div className="border-t border-gray-100 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
             {/* Logo et copyright */}
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center">
@@ -194,6 +194,36 @@ export default function Footer() {
               </a>
             </div>
           </div>
+
+          {/* Statut des systèmes IA */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center gap-2 pt-4 border-t border-gray-50"
+          >
+            <div className="flex items-center gap-2">
+              <motion.div
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [1, 0.5, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="w-2 h-2 rounded-full bg-green-500"
+              />
+              <span className="text-sm font-medium text-gray-700">
+                Systèmes IA opérationnels
+              </span>
+            </div>
+            <span className="text-gray-400">•</span>
+            <span className="text-xs text-gray-500">
+              99.9% uptime
+            </span>
+          </motion.div>
         </div>
       </div>
     </footer>

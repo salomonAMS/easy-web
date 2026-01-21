@@ -3,10 +3,12 @@ import HeroSection from '@/components/HeroSection'
 import BeforeAfterSection from '@/components/BeforeAfterSection'
 import ServicesSection from '@/components/ServicesSection'
 import AIAutomationSection from '@/components/AIAutomationSection'
-import ROICalculator from '@/components/ROICalculator'
+import AIAuditScanner from '@/components/AIAuditScanner'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
 import PageLoader from '@/components/PageLoader'
+import ScrollToTop from '@/components/ScrollToTop'
+import ActivityNotifications from '@/components/ActivityNotifications'
 
 /**
  * Page principale de la landing page Easy Web
@@ -21,8 +23,14 @@ export default function Home() {
       {/* Loader professionnel */}
       <PageLoader />
       
+      {/* Bouton pour remonter en haut */}
+      <ScrollToTop />
+      
+      {/* Notifications d'activité en temps réel */}
+      <ActivityNotifications />
+      
       <main className="relative min-h-screen bg-white">
-      {/* Header sticky avec menu burger */}
+      {/* Header sticky avec menu burger et barre de progression */}
       <Header />
       
       {/* Hero Section responsive */}
@@ -37,13 +45,13 @@ export default function Home() {
       {/* Section Automatisation IA avec workflow visuel */}
       <AIAutomationSection />
       
-      {/* Calculateur de ROI */}
-      <ROICalculator />
+      {/* IA Audit Scanner - Remplace le calculateur de ROI */}
+      <AIAuditScanner />
       
       {/* Section Contact avec formulaire */}
       <ContactSection />
       
-      {/* Footer - Entreprise au Togo */}
+      {/* Footer Premium avec statut systèmes */}
       <Footer />
       </main>
     </>

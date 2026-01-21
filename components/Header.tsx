@@ -10,15 +10,22 @@ import Link from 'next/link'
  * - Design inspiré de mindflow.io
  * - Fond transparent avec backdrop-blur au scroll
  * - Menu slide-in responsive pour mobile
+ * - Barre de progression de lecture
  */
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
       if (typeof window !== 'undefined') {
         setIsScrolled(window.scrollY > 20)
+        
+        // Calcul du pourcentage de scroll pour la barre de progression
+        const windowHeight = document.documentElement.scrollHeight - window.innerHeight
+        const scrolled = (window.scrollY / windowHeight) * 100
+        setScrollProgress(scrolled)
       }
     }
 
@@ -51,6 +58,13 @@ export default function Header() {
 
   return (
     <>
+      {/* Barre de progression de lecture */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-600 z-[60] origin-left"
+        style={{ scaleX: scrollProgress / 100 }}
+        initial={{ scaleX: 0 }}
+      />
+
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
