@@ -246,7 +246,7 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {mainServices.map((service, index) => (
-              <div key={index} className="bg-white rounded-3xl border border-gray-200 p-8 hover:shadow-2xl transition-all group">
+              <div key={index} className="bg-white rounded-3xl border border-gray-200 p-8 hover:shadow-2xl transition-all group flex flex-col">
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                   <service.icon className="w-8 h-8 text-white" />
                 </div>
@@ -254,7 +254,7 @@ export default function ServicesPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
 
-                <div className="space-y-3 mb-6">
+                <div className="space-y-3 mb-6 flex-grow">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-2">
                       <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -263,7 +263,7 @@ export default function ServicesPage() {
                   ))}
                 </div>
 
-                <div className="pt-6 border-t border-gray-200">
+                <div className="pt-6 border-t border-gray-200 mt-auto">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-semibold text-gray-500">Tarif</span>
                     <span className="text-lg font-bold text-gray-900">{service.price}</span>
@@ -293,7 +293,7 @@ export default function ServicesPage() {
             {packages.map((pkg, index) => (
               <div 
                 key={index} 
-                className={`relative bg-white rounded-3xl p-8 ${
+                className={`relative bg-white rounded-3xl p-8 flex flex-col ${
                   pkg.highlight 
                     ? 'border-2 border-blue-600 shadow-2xl scale-105' 
                     : 'border border-gray-200'
@@ -313,7 +313,7 @@ export default function ServicesPage() {
                   <p className="text-sm text-gray-600">{pkg.description}</p>
                 </div>
 
-                <div className="space-y-3 mb-8">
+                <div className="space-y-3 mb-8 flex-grow">
                   {pkg.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-2">
                       <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -324,7 +324,7 @@ export default function ServicesPage() {
 
                 <a
                   href="#contact"
-                  className={`block w-full text-center px-6 py-3 rounded-full font-semibold transition-all ${
+                  className={`block w-full text-center px-6 py-3 rounded-full font-semibold transition-all mt-auto ${
                     pkg.highlight
                       ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:shadow-xl'
                       : 'bg-gray-100 text-gray-900 hover:bg-gray-200'

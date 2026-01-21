@@ -265,7 +265,7 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* Grille de cartes avec effet 3D */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" style={{ perspective: '1000px' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <TiltCard key={index} service={service} index={index} />
           ))}
