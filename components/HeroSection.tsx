@@ -98,7 +98,7 @@ export default function HeroSection() {
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white border border-gray-200 rounded-full font-semibold text-sm md:text-base lg:text-lg text-gray-900 hover:border-gray-300 hover:shadow-lg transition-all duration-300 text-center"
             >
-              Calculer mon ROI
+              Evaluer mon site actuel
             </motion.a>
           </motion.div>
 
