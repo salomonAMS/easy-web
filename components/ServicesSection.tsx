@@ -20,6 +20,7 @@ interface Service {
  */
 function TiltCard({ service, index }: { service: Service; index: number }) {
   const ref = useRef<HTMLDivElement>(null)
+  const [isMobile, setIsMobile] = useState(false)
   
   // Motion values pour le tilt effect
   const x = useMotionValue(0)
@@ -29,15 +30,23 @@ function TiltCard({ service, index }: { service: Service; index: number }) {
   const mouseXSpring = useSpring(x)
   const mouseYSpring = useSpring(y)
   
-  // Transformations pour la rotation 3D
+  // Transformations pour la rotation 3D - désactivées sur mobile
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['17.5deg', '-17.5deg'])
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-17.5deg', '17.5deg'])
+  
+  // Détection mobile au montage
+  useState(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  })
   
   /**
    * Gère le mouvement de la souris pour créer l'effet tilt
    */
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return
+    if (!ref.current || isMobile) return
     
     const rect = ref.current.getBoundingClientRect()
     const width = rect.width
@@ -70,70 +79,71 @@ function TiltCard({ service, index }: { service: Service; index: number }) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
-        rotateX,
-        rotateY,
-        transformStyle: 'preserve-3d',
+        rotateX: isMobile ? 0 : rotateX,
+        rotateY: isMobile ? 0 : rotateY,
+        transformStyle: isMobile ? 'flat' : 'preserve-3d',
       }}
-      className="relative group"
+      className="relative group h-full"
     >
       {/* Effet de lueur en background */}
       <div className={`absolute inset-0 rounded-2xl blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 ${service.gradient}`} />
       
       {/* Carte principale */}
       <div
-        className="relative bg-white p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300"
+        className="relative bg-white p-6 md:p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300 h-full flex flex-col"
         style={{
-          transformStyle: 'preserve-3d',
-          transform: 'translateZ(75px)',
+          transformStyle: isMobile ? 'flat' : 'preserve-3d',
+          transform: isMobile ? 'none' : 'translateZ(75px)',
         }}
       >
         {/* Icône */}
         <div
-          className={`inline-flex p-4 rounded-xl mb-6 ${service.gradient}`}
-          style={{ transform: 'translateZ(50px)' }}
+          className={`inline-flex p-3 md:p-4 rounded-xl mb-4 md:mb-6 ${service.gradient} w-fit`}
+          style={{ transform: isMobile ? 'none' : 'translateZ(50px)' }}
         >
-          <service.icon className="w-8 h-8 text-white" />
+          <service.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
         </div>
         
         {/* Titre */}
         <h3
-          className="text-2xl font-bold text-gray-900 mb-4"
-          style={{ transform: 'translateZ(40px)' }}
+          className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4"
+          style={{ transform: isMobile ? 'none' : 'translateZ(40px)' }}
         >
           {service.title}
         </h3>
         
         {/* Description */}
         <p
-          className="text-gray-600 mb-6"
-          style={{ transform: 'translateZ(30px)' }}
+          className="text-sm md:text-base text-gray-600 mb-4 md:mb-6"
+          style={{ transform: isMobile ? 'none' : 'translateZ(30px)' }}
         >
           {service.description}
         </p>
         
         {/* Features */}
         <ul
-          className="space-y-3"
-          style={{ transform: 'translateZ(20px)' }}
+          className="space-y-2 md:space-y-3 mb-6 flex-grow"
+          style={{ transform: isMobile ? 'none' : 'translateZ(20px)' }}
         >
           {service.features.map((feature, i) => (
-            <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-              <Sparkles className="w-4 h-4 text-blue-600 flex-shrink-0" />
+            <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-gray-600">
+              <Sparkles className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
               <span>{feature}</span>
             </li>
           ))}
         </ul>
         
-        {/* Bouton hover */}
-        <motion.a
-          href="#contact"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="mt-6 w-full py-3 bg-gray-50 hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg font-medium text-gray-900 hover:text-blue-600 transition-all block text-center"
-          style={{ transform: 'translateZ(60px)' }}
-        >
-          En savoir plus
-        </motion.a>
+        {/* Bouton hover - Transform 3D retiré pour éviter les conflits */}
+        <div style={{ transform: isMobile ? 'none' : 'translateZ(60px)' }}>
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-full py-2.5 md:py-3 bg-gray-50 hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg font-medium text-sm md:text-base text-gray-900 hover:text-blue-600 transition-all block text-center"
+          >
+            En savoir plus
+          </motion.a>
+        </div>
       </div>
     </motion.div>
   )
@@ -253,7 +263,7 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* Grille de cartes avec effet 3D */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: '1000px' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" style={{ perspective: '1000px' }}>
           {services.map((service, index) => (
             <TiltCard key={index} service={service} index={index} />
           ))}
