@@ -8,7 +8,7 @@ import { Sparkles, X } from 'lucide-react'
  * Notifications discrètes d'activité en temps réel
  * - Affiche les interventions récentes simulées
  * - Position bas gauche
- * - Auto-rotation toutes les 8 secondes
+ * - Auto-rotation toutes les 6 secondes (optimisé)
  * - Fermeture manuelle possible
  */
 export default function ActivityNotifications() {
@@ -52,20 +52,20 @@ export default function ActivityNotifications() {
   useEffect(() => {
     if (isDismissed) return
 
-    // Afficher après 3 secondes
+    // Afficher après 2 secondes (réduit de 3s)
     const showTimer = setTimeout(() => {
       setIsVisible(true)
-    }, 3000)
+    }, 2000)
 
-    // Rotation automatique toutes les 8 secondes
+    // Rotation automatique toutes les 6 secondes (réduit de 8s)
     const rotationInterval = setInterval(() => {
       setIsVisible(false)
       
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % activities.length)
         setIsVisible(true)
-      }, 500)
-    }, 8000)
+      }, 300)
+    }, 6000)
 
     return () => {
       clearTimeout(showTimer)
@@ -131,11 +131,11 @@ export default function ActivityNotifications() {
               </div>
             </div>
 
-            {/* Barre de progression */}
+            {/* Barre de progression - durée réduite */}
             <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ duration: 7.5, ease: 'linear' }}
+              transition={{ duration: 5.5, ease: 'linear' }}
               className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 origin-left rounded-full"
               style={{ width: '100%' }}
             />

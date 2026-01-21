@@ -14,21 +14,21 @@ export default function PageLoader() {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    // Simuler le chargement progressif
+    // Simuler le chargement progressif - optimisé pour 1 seconde
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval)
           return 100
         }
-        return prev + 10
+        return prev + 20
       })
-    }, 150)
+    }, 100)
 
-    // Masquer le loader après le chargement
+    // Masquer le loader après le chargement - réduit à 1 seconde
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 1800)
+    }, 1000)
 
     return () => {
       clearInterval(interval)
@@ -42,18 +42,18 @@ export default function PageLoader() {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-white"
         >
           <div className="text-center">
-            {/* Logo animé */}
+            {/* Logo animé - simplifié */}
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="mb-8"
+              transition={{ duration: 0.3 }}
+              className="mb-6"
             >
-              <div className="text-5xl font-bold">
+              <div className="text-4xl font-bold">
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                   Easy Web
                 </span>
@@ -61,34 +61,24 @@ export default function PageLoader() {
             </motion.div>
 
             {/* Barre de progression */}
-            <div className="w-64 h-1 bg-gray-100 rounded-full overflow-hidden">
+            <div className="w-48 h-1 bg-gray-100 rounded-full overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.1 }}
                 className="h-full bg-gradient-to-r from-blue-600 to-indigo-600"
               />
             </div>
 
-            {/* Texte de chargement */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="mt-6 text-sm text-gray-500"
-            >
-              Chargement de votre expérience...
-            </motion.p>
-
-            {/* Spinner animé */}
+            {/* Spinner animé - optimisé */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{
                 repeat: Infinity,
-                duration: 1,
+                duration: 0.8,
                 ease: 'linear'
               }}
-              className="mx-auto mt-4 w-8 h-8 border-2 border-gray-200 border-t-blue-600 rounded-full"
+              className="mx-auto mt-4 w-6 h-6 border-2 border-gray-200 border-t-blue-600 rounded-full"
             />
           </div>
         </motion.div>

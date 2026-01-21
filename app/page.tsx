@@ -16,11 +16,12 @@ import ActivityNotifications from '@/components/ActivityNotifications'
  * - Effet fibre optique sur quadrillage
  * - Workflow visuel responsive
  * - Mobile-first et entièrement responsive
+ * - Optimisé pour des performances maximales
  */
 export default function Home() {
   return (
     <>
-      {/* Loader professionnel */}
+      {/* Loader professionnel optimisé (1s) */}
       <PageLoader />
       
       {/* Bouton pour remonter en haut */}
@@ -45,7 +46,7 @@ export default function Home() {
       {/* Section Automatisation IA avec workflow visuel */}
       <AIAutomationSection />
       
-      {/* IA Audit Scanner - Remplace le calculateur de ROI */}
+      {/* IA Audit Scanner - Analyse automatisée du potentiel */}
       <AIAuditScanner />
       
       {/* Section Contact avec formulaire */}

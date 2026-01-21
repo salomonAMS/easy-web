@@ -27,7 +27,7 @@ export default function AIAuditScanner() {
     "✨ Génération du rapport d'audit...",
   ]
 
-  // Gestion du scan
+  // Gestion du scan - optimisé pour 6 secondes
   useEffect(() => {
     if (isScanning) {
       const progressInterval = setInterval(() => {
@@ -37,9 +37,9 @@ export default function AIAuditScanner() {
             setShowResult(true)
             return 100
           }
-          return prev + 2
+          return prev + 3.3 // 100% en ~3 secondes
         })
-      }, 60)
+      }, 50)
 
       const messageInterval = setInterval(() => {
         setCurrentMessage((prev) => {
@@ -49,7 +49,7 @@ export default function AIAuditScanner() {
           }
           return prev + 1
         })
-      }, 1000)
+      }, 600) // Messages plus rapides
 
       return () => {
         clearInterval(progressInterval)
@@ -105,7 +105,7 @@ export default function AIAuditScanner() {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Notre IA scanne votre site en quelques secondes et identifie les opportunités d&apos;automatisation
+            Notre IA scanne votre site en 6 secondes et identifie les opportunités d&apos;automatisation
           </p>
         </motion.div>
 
@@ -148,7 +148,7 @@ export default function AIAuditScanner() {
 
               <div className="flex items-center gap-2 text-sm text-gray-500">
                 <CheckCircle className="w-4 h-4 text-green-600" />
-                <span>Gratuit • Résultats en 10 secondes • Sans engagement</span>
+                <span>Gratuit • Résultats en 6 secondes • Sans engagement</span>
               </div>
             </div>
           )}
@@ -158,11 +158,11 @@ export default function AIAuditScanner() {
             <div className="space-y-8">
               {/* Écran de scan */}
               <div className="relative h-64 bg-gray-900 rounded-2xl overflow-hidden">
-                {/* Effet laser scanner */}
+                {/* Effet laser scanner - optimisé */}
                 <motion.div
                   animate={{ top: ['0%', '100%'] }}
                   transition={{
-                    duration: 2,
+                    duration: 1.5,
                     repeat: Infinity,
                     ease: 'linear',
                   }}
