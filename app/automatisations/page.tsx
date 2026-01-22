@@ -17,7 +17,7 @@ export default function AutomatisationsPage() {
       description: 'Agent conversationnel qui répond aux questions clients 24/7',
       benefits: ['Réduit la charge du support', 'Répond instantanément', 'Disponible 24/7'],
       roi: '50% de tickets support en moins',
-      price: 'À partir de 500€/mois'
+      price: '100k - 300k FCFA (150€ - 450€)'
     },
     {
       icon: Mail,
@@ -25,7 +25,7 @@ export default function AutomatisationsPage() {
       description: 'Gestion intelligente des emails et réponses automatiques',
       benefits: ['Trie et classe les emails', 'Répond automatiquement', 'Suit les conversations'],
       roi: '20h économisées/semaine',
-      price: 'À partir de 400€/mois'
+      price: '75k - 250k FCFA (115€ - 380€)'
     },
     {
       icon: FileText,
@@ -33,7 +33,7 @@ export default function AutomatisationsPage() {
       description: 'Extraction et traitement automatique de documents',
       benefits: ['Lit et comprend les documents', 'Extrait les données clés', 'Génère des rapports'],
       roi: '85% de temps gagné',
-      price: 'À partir de 600€/mois'
+      price: '200k - 500k FCFA (300€ - 750€)'
     },
     {
       icon: Calendar,
@@ -41,7 +41,7 @@ export default function AutomatisationsPage() {
       description: 'Prise de rendez-vous automatisée et gestion d\'agenda',
       benefits: ['Réserve automatiquement', 'Envoie des rappels', 'Gère les annulations'],
       roi: '30h économisées/mois',
-      price: 'À partir de 350€/mois'
+      price: '50k - 200k FCFA (75€ - 300€)'
     },
     {
       icon: Database,
@@ -49,7 +49,7 @@ export default function AutomatisationsPage() {
       description: 'Collecte et enrichissement automatique d\'informations',
       benefits: ['Trouve des prospects', 'Enrichit les fiches clients', 'Met à jour la base'],
       roi: '10x plus de leads qualifiés',
-      price: 'À partir de 550€/mois'
+      price: '150k - 400k FCFA (225€ - 600€)'
     },
     {
       icon: Workflow,
@@ -57,7 +57,7 @@ export default function AutomatisationsPage() {
       description: 'Automatisation complète de vos processus internes',
       benefits: ['Connecte vos outils', 'Automatise les tâches', 'Réduit les erreurs'],
       roi: '60% de productivité en plus',
-      price: 'Sur devis'
+      price: '500k - 1M FCFA (750€ - 1,500€)'
     }
   ]
 
