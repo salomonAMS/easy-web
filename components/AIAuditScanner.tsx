@@ -12,6 +12,7 @@ import { Sparkles, Globe, Zap, CheckCircle, ArrowRight } from 'lucide-react'
  */
 export default function AIAuditScanner() {
   const [url, setUrl] = useState('')
+  const [urlError, setUrlError] = useState('')
   const [isScanning, setIsScanning] = useState(false)
   const [scanProgress, setScanProgress] = useState(0)
   const [currentMessage, setCurrentMessage] = useState(0)
@@ -59,12 +60,24 @@ export default function AIAuditScanner() {
   }, [isScanning, scanMessages.length])
 
   const handleScan = () => {
-    if (url.trim()) {
-      setIsScanning(true)
-      setScanProgress(0)
-      setCurrentMessage(0)
-      setShowResult(false)
+    // Validation robuste de l'URL
+    const urlPattern = /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/
+    
+    if (!url.trim()) {
+      setUrlError('Veuillez entrer une URL')
+      return
     }
+    
+    if (!urlPattern.test(url.trim())) {
+      setUrlError('Veuillez entrer une URL valide (ex: https://exemple.com)')
+      return
+    }
+    
+    setUrlError('')
+    setIsScanning(true)
+    setScanProgress(0)
+    setCurrentMessage(0)
+    setShowResult(false)
   }
 
   const resetScan = () => {
@@ -76,7 +89,7 @@ export default function AIAuditScanner() {
   }
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section id="audit-scanner" className="py-24 px-6 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Effets de fond */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl" />
@@ -115,7 +128,7 @@ export default function AIAuditScanner() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-white rounded-3xl border-2 border-gray-200 p-8 md:p-12 shadow-xl"
+          className="bg-white rounded-2xl md:rounded-3xl border-2 border-gray-200 p-4 sm:p-6 md:p-12 shadow-xl"
         >
           {!isScanning && !showResult && (
             <div className="space-y-6">
@@ -124,26 +137,33 @@ export default function AIAuditScanner() {
                   <Globe className="w-5 h-5 inline mr-2 text-blue-600" />
                   URL de votre site web
                 </label>
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row gap-3">
                   <input
                     type="url"
                     value={url}
-                    onChange={(e) => setUrl(e.target.value)}
+                    onChange={(e) => { setUrl(e.target.value); setUrlError(''); }}
                     onKeyPress={(e) => e.key === 'Enter' && handleScan()}
                     placeholder="https://votre-site.com"
-                    className="flex-1 px-6 py-4 border-2 border-gray-300 rounded-2xl text-lg focus:border-blue-600 focus:outline-none transition-colors"
+                    aria-label="URL de votre site web"
+                    className={`flex-1 px-4 sm:px-6 py-3 sm:py-4 border-2 rounded-xl sm:rounded-2xl text-base sm:text-lg focus:outline-none transition-colors ${
+                      urlError ? 'border-red-500 focus:border-red-600' : 'border-gray-300 focus:border-blue-600'
+                    }`}
                   />
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={handleScan}
                     disabled={!url.trim()}
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-2xl hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                    aria-label="Lancer le scan du site"
+                    className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl sm:rounded-2xl hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                   >
                     <Zap className="w-5 h-5 inline mr-2" />
                     Scanner
                   </motion.button>
                 </div>
+                {urlError && (
+                  <p className="text-red-600 text-sm mt-2">{urlError}</p>
+                )}
               </div>
 
               <div className="flex items-center gap-2 text-sm text-gray-500">
@@ -239,18 +259,18 @@ export default function AIAuditScanner() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 py-6">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 py-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600">85%</div>
-                  <div className="text-sm text-gray-600">Gain de temps</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-blue-600">85%</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Gain de temps</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600">€3.2k</div>
-                  <div className="text-sm text-gray-600">Économies/mois</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-green-600">€3.2k</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Économies/mois</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-600">12</div>
-                  <div className="text-sm text-gray-600">Processus</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-purple-600">12</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Processus</div>
                 </div>
               </div>
 

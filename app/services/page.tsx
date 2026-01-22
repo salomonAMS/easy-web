@@ -1,7 +1,11 @@
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
-import { Globe, Bot, Zap, Palette, Search, Shield, Code, Smartphone, BarChart, Headphones, CheckCircle2, ArrowRight, Package } from 'lucide-react'
+import { Globe, Bot, Zap, Palette, Search, Smartphone, Headphones, CheckCircle2, ArrowRight, Package } from 'lucide-react'
+
+// Lazy load des composants lourds
+const Header = dynamic(() => import('@/components/Header'))
+const Footer = dynamic(() => import('@/components/Footer'))
+const ErrorBoundary = dynamic(() => import('@/components/ErrorBoundary'))
 
 export const metadata: Metadata = {
   title: 'Nos Services - Easy Web | Solutions Web & IA pour PME',
@@ -22,8 +26,8 @@ export default function ServicesPage() {
         'Optimisation des performances',
         'Formation de votre équipe'
       ],
-      price: 'À partir de 2,500€',
-      duration: '4-8 semaines',
+      price: '50k - 150k FCFA (75€ - 230€)',
+      duration: '1-4 semaines',
       color: 'from-blue-600 to-indigo-600'
     },
     {
@@ -38,8 +42,8 @@ export default function ServicesPage() {
         'Enrichissement de données',
         'Workflows personnalisés'
       ],
-      price: 'À partir de 350€/mois',
-      duration: '2-6 semaines',
+      price: '50k - 1M FCFA (75€ - 1,500€)',
+      duration: '1-4 semaines',
       color: 'from-purple-600 to-pink-600'
     },
     {
@@ -54,8 +58,8 @@ export default function ServicesPage() {
         'Tests utilisateurs',
         'Guidelines et documentation'
       ],
-      price: 'À partir de 1,200€',
-      duration: '2-4 semaines',
+      price: 'Inclus dans les sites web',
+      duration: '1-2 semaines',
       color: 'from-pink-600 to-rose-600'
     },
     {
@@ -70,7 +74,7 @@ export default function ServicesPage() {
         'Link building',
         'Rapports mensuels'
       ],
-      price: 'À partir de 400€/mois',
+      price: '30k - 100k FCFA/mois (50€ - 150€)',
       duration: 'Continue',
       color: 'from-green-600 to-emerald-600'
     },
@@ -86,8 +90,8 @@ export default function ServicesPage() {
         'Push notifications',
         'Publication sur stores'
       ],
-      price: 'À partir de 5,000€',
-      duration: '8-16 semaines',
+      price: '500k - 2M FCFA (750€ - 3,000€)',
+      duration: '4-12 semaines',
       color: 'from-orange-600 to-amber-600'
     },
     {
@@ -102,7 +106,7 @@ export default function ServicesPage() {
         'Résolution rapide',
         'Optimisations continues'
       ],
-      price: 'À partir de 150€/mois',
+      price: '20k - 50k FCFA/mois (30€ - 75€)',
       duration: 'Continue',
       color: 'from-cyan-600 to-blue-600'
     }
@@ -111,7 +115,8 @@ export default function ServicesPage() {
   const packages = [
     {
       name: 'Starter',
-      price: '2,500€',
+      price: '50.000 FCFA',
+      priceEUR: '75 EUR',
       description: 'Idéal pour les petites entreprises qui démarrent',
       features: [
         'Site web 5-10 pages',
@@ -125,7 +130,8 @@ export default function ServicesPage() {
     },
     {
       name: 'Professionnel',
-      price: '4,800€',
+      price: 'À partir de 500.000 FCFA',
+      priceEUR: 'À partir de 750 EUR',
       description: 'Pour les PME qui veulent se démarquer',
       features: [
         'Site web 10-20 pages',
@@ -142,6 +148,7 @@ export default function ServicesPage() {
     {
       name: 'Entreprise',
       price: 'Sur devis',
+      priceEUR: 'Sur devis',
       description: 'Solution complète pour grandes organisations',
       features: [
         'Site web illimité',
@@ -155,15 +162,6 @@ export default function ServicesPage() {
       ],
       highlight: false
     }
-  ]
-
-  const addons = [
-    { icon: Code, name: 'E-commerce avancé', price: '+1,500€' },
-    { icon: Shield, name: 'Sécurité renforcée SSL', price: '+200€/an' },
-    { icon: BarChart, name: 'Analytics & Tracking', price: '+300€' },
-    { icon: Zap, name: 'Optimisation performance', price: '+400€' },
-    { icon: Globe, name: 'Site multilingue', price: '+800€' },
-    { icon: Package, name: 'Système de réservation', price: '+1,200€' }
   ]
 
   const process = [
@@ -201,9 +199,10 @@ export default function ServicesPage() {
 
   return (
     <main className="relative min-h-screen bg-white">
-      <Header />
+      <ErrorBoundary>
+        <Header />
+      </ErrorBoundary>
       
-      {/* Hero */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 px-6 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full mb-6">
@@ -234,7 +233,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Principaux */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
@@ -279,7 +277,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Packages */}
       <section id="packages" className="py-16 px-6 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
@@ -309,8 +306,9 @@ export default function ServicesPage() {
 
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
-                  <div className="text-4xl font-bold text-blue-600 mb-2">{pkg.price}</div>
-                  <p className="text-sm text-gray-600">{pkg.description}</p>
+                  <div className="text-3xl font-bold text-blue-600 mb-1">{pkg.price}</div>
+                  <div className="text-lg text-gray-500">{pkg.priceEUR}</div>
+                  <p className="text-sm text-gray-600 mt-2">{pkg.description}</p>
                 </div>
 
                 <div className="space-y-3 mb-8 flex-grow">
@@ -323,7 +321,7 @@ export default function ServicesPage() {
                 </div>
 
                 <a
-                  href="#contact"
+                  href="/contact"
                   className={`block w-full text-center px-6 py-3 rounded-full font-semibold transition-all mt-auto ${
                     pkg.highlight
                       ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:shadow-xl'
@@ -338,35 +336,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Options Additionnelles */}
-      <section className="py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
-            Options Additionnelles
-          </h2>
-          <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-            Personnalisez votre solution avec ces modules complémentaires
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {addons.map((addon, index) => (
-              <div key={index} className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl transition-all">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
-                      <addon.icon className="w-5 h-5 text-blue-600" />
-                    </div>
-                    <span className="font-semibold text-gray-900">{addon.name}</span>
-                  </div>
-                  <span className="text-blue-600 font-bold">{addon.price}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Notre Processus */}
       <section className="py-16 px-6 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
@@ -392,7 +361,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA Final */}
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl p-8 md:p-12 text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -403,7 +371,7 @@ export default function ServicesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 font-semibold rounded-full hover:shadow-xl transition-all"
             >
               Demander un devis gratuit
@@ -419,7 +387,9 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <Footer />
+      <ErrorBoundary>
+        <Footer />
+      </ErrorBoundary>
     </main>
   )
 }

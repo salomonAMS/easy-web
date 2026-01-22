@@ -14,28 +14,28 @@ export default function Footer() {
     services: {
       title: 'Services',
       links: [
-        { label: 'Modernisation Web', href: '#modernisation' },
-        { label: 'Automatisations IA', href: '#automatisations' },
-        { label: 'Développement sur mesure', href: '#developpement' },
-        { label: 'Consulting & Stratégie', href: '#consulting' },
+        { label: 'Modernisation Web', href: '/modernisation' },
+        { label: 'Automatisations IA', href: '/automatisations' },
+        { label: 'Services Complets', href: '/services' },
+        { label: 'Études de cas', href: '/etudes-cas' },
       ],
     },
     entreprise: {
       title: 'Entreprise',
       links: [
-        { label: 'À propos', href: '#about' },
-        { label: 'Études de cas', href: '#etudes-cas' },
-        { label: 'Témoignages', href: '#testimonials' },
-        { label: 'Carrières', href: '#careers' },
+        { label: 'À propos', href: '/a-propos' },
+        { label: 'Contact', href: '/contact' },
+        { label: 'Nos tarifs', href: '/services#packages' },
+        { label: 'Études de cas', href: '/etudes-cas' },
       ],
     },
     ressources: {
       title: 'Ressources',
       links: [
-        { label: 'Blog', href: '#blog' },
-        { label: 'Documentation', href: '#docs' },
-        { label: 'Guides', href: '#guides' },
-        { label: 'Support', href: '#support' },
+        { label: 'Documentation', href: '/services' },
+        { label: 'Guides', href: '/services' },
+        { label: 'Support', href: '/contact' },
+        { label: 'FAQ', href: '/contact#faq' },
       ],
     },
   }
@@ -183,14 +183,14 @@ export default function Footer() {
 
             {/* Liens légaux */}
             <div className="flex gap-6 text-sm text-gray-600">
-              <a href="#privacy" className="hover:text-blue-600 transition-colors">
+              <a href="/confidentialite" className="hover:text-blue-600 transition-colors">
                 Confidentialité
               </a>
-              <a href="#terms" className="hover:text-blue-600 transition-colors">
+              <a href="/conditions" className="hover:text-blue-600 transition-colors">
                 Conditions
               </a>
-              <a href="#cookies" className="hover:text-blue-600 transition-colors">
-                Cookies
+              <a href="/contact" className="hover:text-blue-600 transition-colors">
+                Contact
               </a>
             </div>
           </div>

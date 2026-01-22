@@ -2,7 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
-import AnimatedBackground from './AnimatedBackground'
+import dynamic from 'next/dynamic'
+
+// Lazy load AnimatedBackground avec dynamic import
+const AnimatedBackground = dynamic(() => import('./AnimatedBackground'), { ssr: false })
 
 /**
  * Hero Section en mode light inspiré de mindflow.io
@@ -80,7 +83,7 @@ export default function HeroSection() {
           >
             {/* Bouton principal */}
             <motion.a
-              href="#contact"
+              href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto group relative px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full font-semibold text-sm md:text-base lg:text-lg flex items-center justify-center gap-2 text-white shadow-lg hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300"
@@ -93,7 +96,7 @@ export default function HeroSection() {
 
             {/* Bouton secondaire */}
             <motion.a
-              href="#roi"
+              href="/#audit-scanner"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white border border-gray-200 rounded-full font-semibold text-sm md:text-base lg:text-lg text-gray-900 hover:border-gray-300 hover:shadow-lg transition-all duration-300 text-center"

@@ -17,11 +17,49 @@ export default function ContactSection() {
     phone: '',
     message: ''
   })
+  const [errors, setErrors] = useState<{ [key: string]: string }>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
 
+  const validateForm = () => {
+    const newErrors: { [key: string]: string } = {}
+    
+    // Validation du nom
+    if (!formData.name.trim()) {
+      newErrors.name = 'Le nom est requis'
+    }
+    
+    // Validation de l'email avec regex
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!formData.email.trim()) {
+      newErrors.email = 'L\'email est requis'
+    } else if (!emailPattern.test(formData.email)) {
+      newErrors.email = 'Veuillez entrer un email valide'
+    }
+    
+    // Validation du téléphone (optionnel mais format si rempli)
+    if (formData.phone && !/^[+]?[0-9\s()-]{8,}$/.test(formData.phone)) {
+      newErrors.phone = 'Numéro de téléphone invalide'
+    }
+    
+    // Validation du message
+    if (!formData.message.trim()) {
+      newErrors.message = 'Le message est requis'
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Le message doit contenir au moins 10 caractères'
+    }
+    
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    if (!validateForm()) {
+      return
+    }
+    
     setIsSubmitting(true)
     
     // Simuler l'envoi du formulaire
@@ -29,13 +67,19 @@ export default function ContactSection() {
       setIsSubmitting(false)
       setSubmitMessage('✓ Message envoyé ! Nous vous répondrons sous 24h.')
       setFormData({ name: '', email: '', phone: '', message: '' })
+      setErrors({})
       
       setTimeout(() => setSubmitMessage(''), 5000)
     }, 1500)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+    // Effacer l'erreur du champ lors de la modification
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: '' })
+    }
   }
 
   return (
@@ -75,71 +119,96 @@ export default function ContactSection() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Nom */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 mb-2">
                   Nom complet *
                 </label>
                 <input
+                  id="contact-name"
                   type="text"
                   name="name"
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-gray-900"
+                  aria-label="Nom complet"
+                  aria-invalid={!!errors.name}
+                  className={`w-full px-4 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 transition-all text-gray-900 ${
+                    errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 focus:border-blue-500 focus:ring-blue-100'
+                  }`}
                   placeholder="Jean Dupont"
                 />
+                {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
               </div>
 
               {/* Email */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email *
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
                   name="email"
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-gray-900"
+                  aria-label="Adresse email"
+                  aria-invalid={!!errors.email}
+                  className={`w-full px-4 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 transition-all text-gray-900 ${
+                    errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 focus:border-blue-500 focus:ring-blue-100'
+                  }`}
                   placeholder="jean@entreprise.com"
                 />
+                {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
               </div>
 
               {/* Téléphone */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="contact-phone" className="block text-sm font-medium text-gray-700 mb-2">
                   Téléphone
                 </label>
                 <input
+                  id="contact-phone"
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-gray-900"
+                  aria-label="Numéro de téléphone"
+                  aria-invalid={!!errors.phone}
+                  className={`w-full px-4 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 transition-all text-gray-900 ${
+                    errors.phone ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 focus:border-blue-500 focus:ring-blue-100'
+                  }`}
                   placeholder="+228 90 12 34 56"
                 />
+                {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone}</p>}
               </div>
 
               {/* Message */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700 mb-2">
                   Votre projet *
                 </label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   required
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-gray-900 resize-none"
+                  aria-label="Description de votre projet"
+                  aria-invalid={!!errors.message}
+                  className={`w-full px-4 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 transition-all text-gray-900 resize-none ${
+                    errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 focus:border-blue-500 focus:ring-blue-100'
+                  }`}
                   placeholder="Décrivez votre projet et vos besoins..."
                 />
+                {errors.message && <p className="text-red-600 text-sm mt-1">{errors.message}</p>}
               </div>
 
               {/* Bouton */}
               <button
                 type="submit"
                 disabled={isSubmitting}
+                aria-label="Envoyer le message de contact"
                 className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (

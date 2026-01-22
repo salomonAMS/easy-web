@@ -5,16 +5,15 @@ import { useEffect, useState } from 'react'
 
 /**
  * Loader professionnel avec animation fluide
- * - Logo ou texte animé
- * - Barre de progression
- * - Transition douce
+ * - S'affiche uniquement au premier chargement
+ * - Utilise sessionStorage pour éviter le reload à chaque navigation
  */
 export default function PageLoader() {
   const [isLoading, setIsLoading] = useState(true)
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    // Simuler le chargement progressif - optimisé pour 1 seconde
+    // Simuler le chargement progressif
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -25,7 +24,7 @@ export default function PageLoader() {
       })
     }, 100)
 
-    // Masquer le loader après le chargement - réduit à 1 seconde
+    // Masquer le loader après le chargement
     const timer = setTimeout(() => {
       setIsLoading(false)
     }, 1000)

@@ -77,7 +77,7 @@ export default function Header() {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/">
+            <Link href="/" aria-label="Retour à l'accueil Easy Web">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center gap-2 cursor-pointer"
@@ -107,6 +107,7 @@ export default function Header() {
                 href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                aria-label="Prendre rendez-vous avec Easy Web"
                 className="px-5 xl:px-6 py-2 md:py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 text-sm xl:text-base"
               >
                 Prendre RDV
@@ -117,7 +118,8 @@ export default function Header() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
-              aria-label="Menu"
+              aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -158,6 +160,7 @@ export default function Header() {
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+                    aria-label="Fermer le menu"
                   >
                     <X className="w-6 h-6" />
                   </button>
@@ -188,6 +191,7 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: navLinks.length * 0.1 }}
                     onClick={() => setIsMobileMenuOpen(false)}
+                    aria-label="Prendre rendez-vous avec Easy Web"
                     className="block w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full text-center shadow-lg hover:shadow-xl transition-all"
                   >
                     Prendre RDV

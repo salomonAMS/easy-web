@@ -1,14 +1,20 @@
+'use client'
+
+import dynamic from 'next/dynamic'
 import Header from '@/components/Header'
 import HeroSection from '@/components/HeroSection'
-import BeforeAfterSection from '@/components/BeforeAfterSection'
-import ServicesSection from '@/components/ServicesSection'
-import AIAutomationSection from '@/components/AIAutomationSection'
-import AIAuditScanner from '@/components/AIAuditScanner'
-import ContactSection from '@/components/ContactSection'
-import Footer from '@/components/Footer'
 import PageLoader from '@/components/PageLoader'
-import ScrollToTop from '@/components/ScrollToTop'
-import ActivityNotifications from '@/components/ActivityNotifications'
+import ErrorBoundary from '@/components/ErrorBoundary'
+
+// Lazy loading des composants lourds pour améliorer les performances
+const BeforeAfterSection = dynamic(() => import('@/components/BeforeAfterSection'), { ssr: false })
+const ServicesSection = dynamic(() => import('@/components/ServicesSection'))
+const AIAutomationSection = dynamic(() => import('@/components/AIAutomationSection'), { ssr: false })
+const AIAuditScanner = dynamic(() => import('@/components/AIAuditScanner'), { ssr: false })
+const ContactSection = dynamic(() => import('@/components/ContactSection'))
+const Footer = dynamic(() => import('@/components/Footer'))
+const ScrollToTop = dynamic(() => import('@/components/ScrollToTop'), { ssr: false })
+const ActivityNotifications = dynamic(() => import('@/components/ActivityNotifications'), { ssr: false })
 
 /**
  * Page principale de la landing page Easy Web
@@ -38,22 +44,34 @@ export default function Home() {
       <HeroSection />
       
       {/* Section Avant/Après avec curseur touch-friendly */}
-      <BeforeAfterSection />
+      <ErrorBoundary>
+        <BeforeAfterSection />
+      </ErrorBoundary>
       
       {/* Section Services avec cartes 3D */}
-      <ServicesSection />
+      <ErrorBoundary>
+        <ServicesSection />
+      </ErrorBoundary>
       
       {/* Section Automatisation IA avec workflow visuel */}
-      <AIAutomationSection />
+      <ErrorBoundary>
+        <AIAutomationSection />
+      </ErrorBoundary>
       
       {/* IA Audit Scanner - Analyse automatisée du potentiel */}
-      <AIAuditScanner />
+      <ErrorBoundary>
+        <AIAuditScanner />
+      </ErrorBoundary>
       
       {/* Section Contact avec formulaire */}
-      <ContactSection />
+      <ErrorBoundary>
+        <ContactSection />
+      </ErrorBoundary>
       
       {/* Footer Premium avec statut systèmes */}
-      <Footer />
+      <ErrorBoundary>
+        <Footer />
+      </ErrorBoundary>
       </main>
     </>
   )

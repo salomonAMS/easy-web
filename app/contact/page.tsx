@@ -177,24 +177,29 @@ export default function ContactPage() {
       {/* Formulaire de Contact */}
       <ContactSection />
 
-      {/* FAQ */}
-      <section className="py-16 px-6 bg-gradient-to-b from-white to-gray-50">
+      {/* FAQ Section */}
+      <section id="faq" className="py-16 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
-            Questions Fréquentes
-          </h2>
-          <p className="text-lg text-gray-600 text-center mb-12">
-            Retrouvez les réponses aux questions les plus courantes
-          </p>
+          <div className="text-center mb-12">
+            <HelpCircle className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Questions Fréquentes
+            </h2>
+            <p className="text-lg text-gray-600">
+              Les réponses aux questions les plus courantes sur nos services
+            </p>
+          </div>
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <details key={index} className="bg-white rounded-2xl border border-gray-200 p-6 group">
-                <summary className="flex items-center justify-between cursor-pointer list-none">
-                  <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
-                  <ChevronDown className="w-5 h-5 text-blue-600 flex-shrink-0 group-open:rotate-180 transition-transform" />
+                <summary className="font-semibold text-gray-900 cursor-pointer list-none flex items-center justify-between">
+                  <span>{faq.question}</span>
+                  <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
                 </summary>
-                <p className="text-gray-600 mt-4 leading-relaxed">{faq.answer}</p>
+                <p className="mt-4 text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
               </details>
             ))}
           </div>
