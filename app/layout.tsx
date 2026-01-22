@@ -6,8 +6,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 const siteUrl = 'https://easy-webco.vercel.app' 
 export const metadata: Metadata = {
-  title: 'Easy Web - Transformation Digitale & IA | Agence IA',
-  description: 'Easy Web : Agence IA spécialisée en transformation digitale. Nous modernisons votre site web et automatisons vos processus avec l\'intelligence artificielle pour générer plus de clients.',
+  title: 'Easy Web - Transformation Digitale & IA | Agence web',
+  description: 'Easy Web : Agence web spécialisée en transformation digitale. Nous modernisons votre site web et automatisons vos processus avec l\'intelligence artificielle pour générer plus de clients.',
   keywords: [
     'Easy Web',
     'Agence IA',
