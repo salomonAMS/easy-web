@@ -3,12 +3,14 @@
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
 import { useState } from 'react'
+import Swal from 'sweetalert2'
 
 /**
  * Section de contact avec formulaire
  * - Design épuré et responsive
  * - Formulaire avec validation
  * - Informations de contact
+ * - Envoi via Web3Forms avec SweetAlert2
  */
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -19,7 +21,6 @@ export default function ContactSection() {
   })
   const [errors, setErrors] = useState<{ [key: string]: string }>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitMessage, setSubmitMessage] = useState('')
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {}
@@ -62,15 +63,54 @@ export default function ContactSection() {
     
     setIsSubmitting(true)
     
-    // Simuler l'envoi du formulaire
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setSubmitMessage('✓ Message envoyé ! Nous vous répondrons sous 24h.')
-      setFormData({ name: '', email: '', phone: '', message: '' })
-      setErrors({})
+    try {
+      // Préparation des données pour Web3Forms
+      const formDataToSend = new FormData()
+      formDataToSend.append('access_key', 'f46579a0-acd1-458b-ae89-0c14ea38a8d2')
+      formDataToSend.append('name', formData.name)
+      formDataToSend.append('email', formData.email)
+      formDataToSend.append('phone', formData.phone)
+      formDataToSend.append('message', formData.message)
+      formDataToSend.append('subject', `Nouveau message de ${formData.name} - Easy Web`)
       
-      setTimeout(() => setSubmitMessage(''), 5000)
-    }, 1500)
+      // Envoi via Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formDataToSend
+      })
+      
+      const result = await response.json()
+      
+      if (result.success) {
+        // Succès : Afficher l'alerte SweetAlert2
+        await Swal.fire({
+          icon: 'success',
+          title: 'Message envoyé !',
+          text: 'Merci pour votre message. Nous reviendrons vers vous rapidement.',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#2563eb',
+          timer: 5000,
+          timerProgressBar: true
+        })
+        
+        // Réinitialiser le formulaire
+        setFormData({ name: '', email: '', phone: '', message: '' })
+        setErrors({})
+      } else {
+        throw new Error('Échec de l\'envoi')
+      }
+    } catch (error) {
+      // Erreur : Afficher l'alerte d'erreur
+      await Swal.fire({
+        icon: 'error',
+        title: 'Erreur d\'envoi',
+        text: 'Une erreur s\'est produite lors de l\'envoi du message. Veuillez réessayer.',
+        confirmButtonText: 'Réessayer',
+        confirmButtonColor: '#dc2626'
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -223,17 +263,6 @@ export default function ContactSection() {
                   </>
                 )}
               </button>
-
-              {/* Message de confirmation */}
-              {submitMessage && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm"
-                >
-                  {submitMessage}
-                </motion.div>
-              )}
             </form>
           </motion.div>
 
