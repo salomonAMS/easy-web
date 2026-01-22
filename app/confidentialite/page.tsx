@@ -120,7 +120,7 @@ export default function ConfidentialitePage() {
           <div className="mt-12 p-6 bg-blue-50 rounded-2xl">
             <p className="text-sm text-gray-600">
               <strong>Questions ?</strong> Pour toute question concernant cette politique de confidentialité, 
-              contactez-nous à easyweb.ent@gmail.com ou +228 93 285966
+              contactez-nous à easyweb.ent@gmail.com ou +228 93 28 59 66
             </p>
           </div>
         </div>

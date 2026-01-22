@@ -15,7 +15,7 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: 'Téléphone',
-      value: '+228 93 285966',
+      value: '+228 93 28 59 66',
       description: 'Lun-Sam : 8h-18h',
       link: 'tel:+22893285966'
     },
