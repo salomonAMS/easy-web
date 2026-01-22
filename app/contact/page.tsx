@@ -30,7 +30,7 @@ export default function ContactPage() {
       icon: MapPin,
       title: 'Adresse',
       value: 'Lomé, Togo',
-      description: 'Quartier des Affaires',
+      description: 'Rencontrez-nous sur rendez-vous',
       link: '#'
     },
     {
