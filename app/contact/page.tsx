@@ -49,7 +49,7 @@ export default function ContactPage() {
     },
     {
       question: 'Quels sont vos tarifs ?',
-      answer: 'Nos tarifs démarrent à 2,500€ pour un site vitrine professionnel. Pour les automatisations IA, les tarifs commencent à 350€/mois. Chaque projet est unique, nous proposons toujours un devis personnalisé gratuit après avoir étudié vos besoins spécifiques.'
+      answer: 'Nos tarifs démarrent à 200.000 FCFA (environ 300€) pour un site vitrine professionnel. Pour les automatisations IA, les tarifs commencent à 100.000 FCFA (environ 150€). Chaque projet est unique, nous proposons toujours un devis personnalisé gratuit après avoir étudié vos besoins spécifiques.'
     },
     {
       question: 'Proposez-vous des facilités de paiement ?',
@@ -213,7 +213,7 @@ export default function ContactPage() {
             Notre Localisation
           </h2>
           <p className="text-lg text-gray-600 text-center mb-12">
-            Basés à Lomé, au cœur du quartier des affaires
+            Basés à Lomé.
           </p>
 
           <div className="bg-white rounded-3xl border border-gray-200 p-4 shadow-lg overflow-hidden">
@@ -221,7 +221,6 @@ export default function ContactPage() {
               <div className="text-center">
                 <MapPin className="w-16 h-16 text-blue-600 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Lomé, Togo</h3>
-                <p className="text-gray-600 mb-6">Quartier des Affaires</p>
                 <a
                   href="https://maps.google.com"
                   target="_blank"
