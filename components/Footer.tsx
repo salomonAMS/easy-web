@@ -134,14 +134,14 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-gray-600 text-sm">
                 <Mail className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                <a href="mailto:contact@easyweb.tg" className="hover:text-blue-600 transition-colors">
-                  contact@easyweb.tg
+                <a href="mailto:easyweb.ent@gmail.com" className="hover:text-blue-600 transition-colors">
+                  easyweb.ent@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3 text-gray-600 text-sm">
                 <Phone className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                <a href="tel:+22890123456" className="hover:text-blue-600 transition-colors">
-                  +228 90 12 34 56
+                <a href="tel:+22893285966" className="hover:text-blue-600 transition-colors">
+                  +228 93 285966
                 </a>
               </li>
               <li className="flex items-start gap-3 text-gray-600 text-sm">

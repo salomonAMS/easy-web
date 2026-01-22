@@ -94,7 +94,7 @@ export default function ConfidentialitePage() {
                   <li><strong>Droit d&apos;opposition</strong> : Refuser le traitement</li>
                 </ul>
                 <p className="mt-4">
-                  Pour exercer vos droits, contactez-nous à : contact@easyweb.tg
+                  Pour exercer vos droits, contactez-nous à : easyweb.ent@gmail.com
                 </p>
               </div>
             </section>
@@ -120,7 +120,7 @@ export default function ConfidentialitePage() {
           <div className="mt-12 p-6 bg-blue-50 rounded-2xl">
             <p className="text-sm text-gray-600">
               <strong>Questions ?</strong> Pour toute question concernant cette politique de confidentialité, 
-              contactez-nous à contact@easyweb.tg ou +228 90 12 34 56
+              contactez-nous à easyweb.ent@gmail.com ou +228 93 285966
             </p>
           </div>
         </div>

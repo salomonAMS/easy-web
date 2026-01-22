@@ -15,16 +15,16 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: 'Téléphone',
-      value: '+228 XX XX XX XX',
+      value: '+228 93 285966',
       description: 'Lun-Sam : 8h-18h',
-      link: 'tel:+228XXXXXXXX'
+      link: 'tel:+22893285966'
     },
     {
       icon: Mail,
       title: 'Email',
-      value: 'contact@easyweb.tg',
+      value: 'easyweb.ent@gmail.com',
       description: 'Réponse sous 24h',
-      link: 'mailto:contact@easyweb.tg'
+      link: 'mailto:easyweb.ent@gmail.com'
     },
     {
       icon: MapPin,
@@ -248,14 +248,14 @@ export default function ContactPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+228XXXXXXXX"
+              href="tel:+22893285966"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 font-semibold rounded-full hover:shadow-xl transition-all"
             >
               <Phone className="w-5 h-5" />
               Appelez-nous maintenant
             </a>
             <a
-              href="mailto:contact@easyweb.tg"
+              href="mailto:easyweb.ent@gmail.com"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-700 text-white font-semibold rounded-full hover:bg-blue-800 transition-all border-2 border-white/20"
             >
               <Mail className="w-5 h-5" />

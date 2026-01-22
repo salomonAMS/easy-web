@@ -177,7 +177,7 @@ export default function ContactSection() {
                   className={`w-full px-4 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 transition-all text-gray-900 ${
                     errors.phone ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 focus:border-blue-500 focus:ring-blue-100'
                   }`}
-                  placeholder="+228 90 12 34 56"
+                  placeholder="+228 93 285966"
                 />
                 {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone}</p>}
               </div>
@@ -252,18 +252,18 @@ export default function ContactSection() {
               </p>
 
               <div className="space-y-4">
-                <a href="mailto:contact@easyweb.tg" className="flex items-center gap-3 text-white hover:text-blue-100 transition-colors">
+                <a href="mailto:easyweb.ent@gmail.com" className="flex items-center gap-3 text-white hover:text-blue-100 transition-colors">
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
-                  <span>contact@easyweb.tg</span>
+                  <span>easyweb.ent@gmail.com</span>
                 </a>
 
-                <a href="tel:+22890123456" className="flex items-center gap-3 text-white hover:text-blue-100 transition-colors">
+                <a href="tel:+22893285966" className="flex items-center gap-3 text-white hover:text-blue-100 transition-colors">
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
-                  <span>+228 90 12 34 56</span>
+                  <span>+228 93 285966</span>
                 </a>
 
                 <div className="flex items-center gap-3 text-white">
