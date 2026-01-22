@@ -57,6 +57,9 @@ export default function PageLoader() {
                   Easy Web
                 </span>
               </div>
+              <p className="text-gray-500 text-sm mt-3">
+                Chargement de votre expérience 😉
+              </p>
             </motion.div>
 
             {/* Barre de progression */}

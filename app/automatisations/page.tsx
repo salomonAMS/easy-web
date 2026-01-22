@@ -57,7 +57,7 @@ export default function AutomatisationsPage() {
       description: 'Automatisation complète de vos processus internes',
       benefits: ['Connecte vos outils', 'Automatise les tâches', 'Réduit les erreurs'],
       roi: '60% de productivité en plus',
-      price: '500k - 1M FCFA (750€ - 1,500€)'
+      price: 'Sur devis'
     }
   ]
 
