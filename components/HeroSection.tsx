@@ -57,10 +57,7 @@ export default function HeroSection() {
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               en une machine à générer des clients
             </span>
-            <br />
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              grâce à l&apos;IA
-            </span>
+          
           </motion.h1>
 
           {/* Sous-titre */}
