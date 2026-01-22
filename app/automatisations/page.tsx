@@ -170,7 +170,7 @@ export default function AutomatisationsPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <a
-              href="#contact"
+              href="/contact"
               className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:shadow-xl hover:shadow-blue-500/50 transition-all"
             >
               Discuter de mon projet
@@ -324,7 +324,7 @@ export default function AutomatisationsPage() {
             transformer votre productivité
           </p>
           <a
-            href="#contact"
+            href="/contact"
             className="inline-block px-8 py-4 bg-white text-blue-600 font-semibold rounded-full hover:shadow-xl transition-all"
           >
             Demander une démonstration
