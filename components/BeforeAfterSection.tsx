@@ -78,40 +78,26 @@ export default function BeforeAfterSection() {
             style={{ touchAction: 'none' }}
           >
             {/* Image AVANT (obsolète) - Fond fixe */}
-            <div className="absolute inset-0 w-full h-full">
-              <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="text-6xl mb-4">🕰️</div>
-                  <h3 className="text-3xl font-bold text-gray-400 mb-4">Site Obsolète</h3>
-                  <div className="space-y-2 text-gray-500">
-                    <p>✗ Design années 2000</p>
-                    <p>✗ Non responsive</p>
-                    <p>✗ Lent et lourd</p>
-                    <p>✗ Aucune automatisation</p>
-                  </div>
-                </div>
-              </div>
+            <div className="absolute inset-0 w-full h-full bg-gray-100">
+              <img 
+                src="/images/après.png" 
+                alt="Site traditionnel - Café Premium" 
+                className="w-full h-full object-contain"
+              />
             </div>
 
             {/* Image APRÈS (moderne) - Se révèle avec le slider */}
             <div
-              className="absolute inset-0 w-full h-full"
+              className="absolute inset-0 w-full h-full bg-gray-900"
               style={{
                 clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
               }}
             >
-              <div className="w-full h-full bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="text-6xl mb-4">✨</div>
-                  <h3 className="text-3xl font-bold text-white mb-4">Site Moderne & IA</h3>
-                  <div className="space-y-2 text-blue-200">
-                    <p>✓ Design épuré et moderne</p>
-                    <p>✓ 100% responsive</p>
-                    <p>✓ Ultra-rapide et optimisé</p>
-                    <p>✓ IA intégrée pour l&apos;automatisation</p>
-                  </div>
-                </div>
-              </div>
+              <img 
+                src="/images/avant.png" 
+                alt="Site moderne avec IA - Expérience café réinventée" 
+                className="w-full h-full object-contain"
+              />
             </div>
 
             {/* Ligne de séparation et poignée du slider */}
