@@ -7,6 +7,10 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Easy Web - Transformation Digitale & IA',
   description: 'Nous transformons votre présence web obsolète en une machine à générer des clients grâce à l\'IA',
+  icons: {
+    icon: '/icon.svg',
+    apple: '/icon.svg',
+  },
 }
 
 export default function RootLayout({
