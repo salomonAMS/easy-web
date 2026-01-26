@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import ThemeToggle from './ThemeToggle'
 
 /**
  * Header avec navigation sticky et menu burger
@@ -70,8 +71,8 @@ export default function Header() {
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/90 backdrop-blur-xl border-b border-gray-100 shadow-sm'
-            : 'bg-white/60 backdrop-blur-md'
+            ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 shadow-sm'
+            : 'bg-white/60 dark:bg-gray-900/60 backdrop-blur-md'
         }`}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 md:py-4">
@@ -85,7 +86,7 @@ export default function Header() {
                 <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center">
                   <span className="text-white font-bold text-lg md:text-xl">E</span>
                 </div>
-                <span className="text-lg md:text-xl font-bold text-gray-900">Easy Web</span>
+                <span className="text-lg md:text-xl font-bold text-gray-900 dark:text-white">Easy Web</span>
               </motion.div>
             </Link>
 
@@ -95,12 +96,15 @@ export default function Header() {
                 <Link key={index} href={link.href}>
                   <motion.span
                     whileHover={{ y: -2 }}
-                    className="text-gray-600 hover:text-blue-600 font-medium transition-colors cursor-pointer text-sm xl:text-base"
+                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors cursor-pointer text-sm xl:text-base"
                   >
                     {link.label}
                   </motion.span>
                 </Link>
               ))}
+              
+              {/* Bouton de thème */}
+              <ThemeToggle />
               
               {/* Bouton CTA */}
               <motion.a
@@ -117,7 +121,7 @@ export default function Header() {
             {/* Menu burger mobile */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+              className="lg:hidden p-2 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
               aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
               aria-expanded={isMobileMenuOpen}
             >
@@ -146,20 +150,20 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-full sm:w-80 bg-white z-50 lg:hidden shadow-2xl overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-full sm:w-80 bg-white dark:bg-gray-900 z-50 lg:hidden shadow-2xl overflow-y-auto"
             >
               <div className="flex flex-col h-full">
                 {/* Header du menu */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+                <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
                   <div className="flex items-center gap-2">
                     <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center">
                       <span className="text-white font-bold text-lg">E</span>
                     </div>
-                    <span className="text-lg font-bold text-gray-900">Easy Web</span>
+                    <span className="text-lg font-bold text-gray-900 dark:text-white">Easy Web</span>
                   </div>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
                     aria-label="Fermer le menu"
                   >
                     <X className="w-6 h-6" />
@@ -175,7 +179,7 @@ export default function Header() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1 }}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-all font-medium cursor-pointer"
+                        className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl transition-all font-medium cursor-pointer"
                       >
                         {link.label}
                       </motion.div>
@@ -184,7 +188,7 @@ export default function Header() {
                 </div>
 
                 {/* CTA en bas du menu mobile */}
-                <div className="p-6 border-t border-gray-100">
+                <div className="p-6 border-t border-gray-100 dark:border-gray-800">
                   <motion.a
                     href="#contact"
                     initial={{ opacity: 0, y: 20 }}
@@ -198,7 +202,7 @@ export default function Header() {
                   </motion.a>
                   
                   {/* Info entreprise */}
-                  <p className="text-center text-sm text-gray-500 mt-4">
+                  <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
                     🇹🇬 Basé à Lomé, Togo
                   </p>
                 </div>

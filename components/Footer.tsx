@@ -48,7 +48,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="relative bg-white border-t border-gray-100">
+    <footer className="relative bg-white dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Colonne Services */}
@@ -58,7 +58,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <h3 className="text-gray-900 font-bold text-lg mb-4">
+            <h3 className="text-gray-900 dark:text-white font-bold text-lg mb-4">
               {footerLinks.services.title}
             </h3>
             <ul className="space-y-3">
@@ -66,7 +66,7 @@ export default function Footer() {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-600 hover:text-blue-600 transition-colors text-sm"
+                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -82,7 +82,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h3 className="text-gray-900 font-bold text-lg mb-4">
+            <h3 className="text-gray-900 dark:text-white font-bold text-lg mb-4">
               {footerLinks.entreprise.title}
             </h3>
             <ul className="space-y-3">
@@ -90,7 +90,7 @@ export default function Footer() {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-600 hover:text-blue-600 transition-colors text-sm"
+                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -106,7 +106,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <h3 className="text-gray-900 font-bold text-lg mb-4">
+            <h3 className="text-gray-900 dark:text-white font-bold text-lg mb-4">
               {footerLinks.ressources.title}
             </h3>
             <ul className="space-y-3">
@@ -114,7 +114,7 @@ export default function Footer() {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-600 hover:text-blue-600 transition-colors text-sm"
+                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -130,22 +130,22 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            <h3 className="text-gray-900 font-bold text-lg mb-4">Contact</h3>
+            <h3 className="text-gray-900 dark:text-white font-bold text-lg mb-4">Contact</h3>
             <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-gray-600 text-sm">
-                <Mail className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                <a href="mailto:easyweb.ent@gmail.com" className="hover:text-blue-600 transition-colors">
+              <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm">
+                <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                <a href="mailto:easyweb.ent@gmail.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   easyweb.ent@gmail.com
                 </a>
               </li>
-              <li className="flex items-start gap-3 text-gray-600 text-sm">
-                <Phone className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                <a href="tel:+22893285966" className="hover:text-blue-600 transition-colors">
+              <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm">
+                <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                <a href="tel:+22893285966" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   +228 93 28 59 66
                 </a>
               </li>
-              <li className="flex items-start gap-3 text-gray-600 text-sm">
-                <MapPin className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm">
+                <MapPin className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                 <span>🇹🇬 Lomé, Togo</span>
               </li>
             </ul>
@@ -158,10 +158,10 @@ export default function Footer() {
                   href={social.href}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 flex items-center justify-center group transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 flex items-center justify-center group transition-all duration-300"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" />
+                  <social.icon className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors" />
                 </motion.a>
               ))}
             </div>
@@ -169,27 +169,27 @@ export default function Footer() {
         </div>
 
         {/* Barre de séparation */}
-        <div className="border-t border-gray-100 pt-8">
+        <div className="border-t border-gray-100 dark:border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
             {/* Logo et copyright */}
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center">
                 <span className="text-white font-bold">E</span>
               </div>
-              <span className="text-gray-600 text-sm">
+              <span className="text-gray-600 dark:text-gray-400 text-sm">
                 © 2026 Easy Web. Tous droits réservés.
               </span>
             </div>
 
             {/* Liens légaux */}
-            <div className="flex gap-6 text-sm text-gray-600">
-              <a href="/confidentialite" className="hover:text-blue-600 transition-colors">
+            <div className="flex gap-6 text-sm text-gray-600 dark:text-gray-400">
+              <a href="/confidentialite" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 Confidentialité
               </a>
-              <a href="/conditions" className="hover:text-blue-600 transition-colors">
+              <a href="/conditions" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 Conditions
               </a>
-              <a href="/contact" className="hover:text-blue-600 transition-colors">
+              <a href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 Contact
               </a>
             </div>
@@ -200,7 +200,7 @@ export default function Footer() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center gap-2 pt-4 border-t border-gray-50"
+            className="flex items-center justify-center gap-2 pt-4 border-t border-gray-50 dark:border-gray-800"
           >
             <div className="flex items-center gap-2">
               <motion.div
@@ -215,12 +215,12 @@ export default function Footer() {
                 }}
                 className="w-2 h-2 rounded-full bg-green-500"
               />
-              <span className="text-sm font-medium text-gray-700">
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                 Systèmes IA opérationnels
               </span>
             </div>
-            <span className="text-gray-400">•</span>
-            <span className="text-xs text-gray-500">
+            <span className="text-gray-400 dark:text-gray-600">•</span>
+            <span className="text-xs text-gray-500 dark:text-gray-500">
               99.9% uptime
             </span>
           </motion.div>

@@ -36,7 +36,7 @@ export default function Home() {
       {/* Notifications d'activité en temps réel */}
       <ActivityNotifications />
       
-      <main className="relative min-h-screen bg-white">
+      <main className="relative min-h-screen bg-white dark:bg-gray-950">
       {/* Header sticky avec menu burger et barre de progression */}
       <Header />
       

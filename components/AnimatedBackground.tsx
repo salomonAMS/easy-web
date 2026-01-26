@@ -2,7 +2,8 @@
 
 /**
  * Composant d'arrière-plan avec quadrillage et effet fibre optique
- * - Quadrillage gris très clair sur fond blanc
+ * - Quadrillage gris très clair sur fond blanc (mode clair)
+ * - Quadrillage inversé sur fond noir profond (mode sombre)
  * - Traversées de lumière bleues/indigo animées
  * - Animations CSS performantes avec @keyframes
  * - Optimisé GPU avec transform3d et will-change
@@ -10,9 +11,9 @@
 export default function AnimatedBackground() {
   return (
     <>
-      {/* Quadrillage de fond */}
+      {/* Quadrillage de fond - adaptatif light/dark */}
       <div 
-        className="absolute inset-0 z-0 pointer-events-none"
+        className="absolute inset-0 z-0 pointer-events-none dark:bg-gray-950"
         style={{
           backgroundImage: `
             linear-gradient(to right, rgba(200, 200, 200, 0.3) 1px, transparent 1px),
@@ -22,7 +23,20 @@ export default function AnimatedBackground() {
           backgroundColor: '#ffffff',
           willChange: 'transform'
         }}
-      />
+      >
+        {/* Dark mode quadrillage inversé */}
+        <div 
+          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(96, 165, 250, 0.15) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(96, 165, 250, 0.15) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+            backgroundColor: '#0a0a0a'
+          }}
+        />
+      </div>
       
       {/* Lignes de lumière horizontales */}
       <div 

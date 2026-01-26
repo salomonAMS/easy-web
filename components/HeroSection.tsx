@@ -15,7 +15,7 @@ const AnimatedBackground = dynamic(() => import('./AnimatedBackground'), { ssr: 
  */
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-white">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-white dark:bg-gray-950">
       {/* Background avec quadrillage et fibre optique */}
       <AnimatedBackground />
       {/* Contenu principal */}
@@ -31,10 +31,10 @@ export default function HeroSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 border border-blue-100 rounded-full mb-8"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-800 rounded-full mb-8"
           >
-            <Sparkles className="w-5 h-5 text-blue-600" />
-            <span className="text-sm font-semibold text-blue-900">
+            <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+            <span className="text-sm font-semibold text-blue-900 dark:text-blue-200">
               Transformation Digitale & IA
             </span>
           </motion.div>
@@ -46,15 +46,15 @@ export default function HeroSection() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight px-4"
           >
-            <span className="text-gray-900">
+            <span className="text-gray-900 dark:text-white">
               Nous transformons
             </span>
             <br />
-            <span className="text-gray-900">
+            <span className="text-gray-900 dark:text-white">
               votre présence web obsolète
             </span>
             <br />
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
               en une machine à générer des clients
             </span>
           
@@ -65,7 +65,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 md:mb-12 max-w-3xl mx-auto px-4"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 md:mb-12 max-w-3xl mx-auto px-4"
           >
             Augmentez votre chiffre d&apos;affaires de 300% grâce à des solutions web modernes 
             et des automatisations intelligentes propulsées par l&apos;IA.
@@ -96,7 +96,7 @@ export default function HeroSection() {
               href="/#audit-scanner"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white border border-gray-200 rounded-full font-semibold text-sm md:text-base lg:text-lg text-gray-900 hover:border-gray-300 hover:shadow-lg transition-all duration-300 text-center"
+              className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full font-semibold text-sm md:text-base lg:text-lg text-gray-900 dark:text-white hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-lg transition-all duration-300 text-center"
             >
               Evaluer mon site actuel
             </motion.a>
