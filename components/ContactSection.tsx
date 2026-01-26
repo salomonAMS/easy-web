@@ -123,10 +123,10 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900 relative overflow-hidden">
       {/* Décoration */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-30" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 dark:bg-blue-950/30 rounded-full blur-3xl opacity-30" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-100 dark:bg-indigo-950/30 rounded-full blur-3xl opacity-30" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* En-tête */}
@@ -136,14 +136,14 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 px-4">
             Prêt à transformer
             <br />
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
               votre entreprise ?
             </span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
             Discutons de votre projet. Réponse sous 24h.
           </p>
         </motion.div>
@@ -154,12 +154,12 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-lg"
+            className="bg-white dark:bg-gray-900 rounded-3xl border border-gray-200 dark:border-gray-800 p-6 md:p-8 shadow-lg"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Nom */}
               <div>
-                <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Nom complet *
                 </label>
                 <input
@@ -171,8 +171,8 @@ export default function ContactSection() {
                   onChange={handleChange}
                   aria-label="Nom complet"
                   aria-invalid={!!errors.name}
-                  className={`w-full px-4 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 transition-all text-gray-900 ${
-                    errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 focus:border-blue-500 focus:ring-blue-100'
+                  className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border rounded-xl focus:outline-none focus:ring-2 transition-all text-gray-900 dark:text-white ${
+                    errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-blue-100'
                   }`}
                   placeholder="Jean Dupont"
                 />
@@ -181,7 +181,7 @@ export default function ContactSection() {
 
               {/* Email */}
               <div>
-                <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Email *
                 </label>
                 <input
@@ -193,8 +193,8 @@ export default function ContactSection() {
                   onChange={handleChange}
                   aria-label="Adresse email"
                   aria-invalid={!!errors.email}
-                  className={`w-full px-4 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 transition-all text-gray-900 ${
-                    errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 focus:border-blue-500 focus:ring-blue-100'
+                  className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border rounded-xl focus:outline-none focus:ring-2 transition-all text-gray-900 dark:text-white ${
+                    errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-blue-100'
                   }`}
                   placeholder="jean@entreprise.com"
                 />
@@ -203,7 +203,7 @@ export default function ContactSection() {
 
               {/* Téléphone */}
               <div>
-                <label htmlFor="contact-phone" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="contact-phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Téléphone
                 </label>
                 <input
@@ -214,8 +214,8 @@ export default function ContactSection() {
                   onChange={handleChange}
                   aria-label="Numéro de téléphone"
                   aria-invalid={!!errors.phone}
-                  className={`w-full px-4 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 transition-all text-gray-900 ${
-                    errors.phone ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 focus:border-blue-500 focus:ring-blue-100'
+                  className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border rounded-xl focus:outline-none focus:ring-2 transition-all text-gray-900 dark:text-white ${
+                    errors.phone ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-blue-100'
                   }`}
                   placeholder="+228 93 28 59 66"
                 />
@@ -224,7 +224,7 @@ export default function ContactSection() {
 
               {/* Message */}
               <div>
-                <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Votre projet *
                 </label>
                 <textarea
@@ -236,8 +236,8 @@ export default function ContactSection() {
                   rows={5}
                   aria-label="Description de votre projet"
                   aria-invalid={!!errors.message}
-                  className={`w-full px-4 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 transition-all text-gray-900 resize-none ${
-                    errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 focus:border-blue-500 focus:ring-blue-100'
+                  className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border rounded-xl focus:outline-none focus:ring-2 transition-all text-gray-900 dark:text-white resize-none ${
+                    errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-blue-100'
                   }`}
                   placeholder="Décrivez votre projet et vos besoins..."
                 />
@@ -305,16 +305,16 @@ export default function ContactSection() {
             </div>
 
             {/* Horaires */}
-            <div className="bg-white rounded-3xl border border-gray-200 p-6 md:p-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Horaires</h3>
-              <div className="space-y-2 text-gray-600">
+            <div className="bg-white dark:bg-gray-900 rounded-3xl border border-gray-200 dark:border-gray-800 p-6 md:p-8">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Horaires</h3>
+              <div className="space-y-2 text-gray-600 dark:text-gray-300">
                 <div className="flex justify-between">
                   <span>Lundi - Vendredi</span>
-                  <span className="font-semibold text-gray-900">8h - 18h</span>
+                  <span className="font-semibold text-gray-900 dark:text-white">8h - 18h</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Samedi</span>
-                  <span className="font-semibold text-gray-900">9h - 13h</span>
+                  <span className="font-semibold text-gray-900 dark:text-white">9h - 13h</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Dimanche</span>

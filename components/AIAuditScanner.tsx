@@ -89,10 +89,10 @@ export default function AIAuditScanner() {
   }
 
   return (
-    <section id="audit-scanner" className="py-24 px-6 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section id="audit-scanner" className="py-24 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 relative overflow-hidden">
       {/* Effets de fond */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         {/* En-tête */}
@@ -103,21 +103,21 @@ export default function AIAuditScanner() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 border border-blue-100 rounded-full mb-6">
-            <Sparkles className="w-5 h-5 text-blue-600" />
-            <span className="text-sm font-semibold text-blue-900">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-800 rounded-full mb-6">
+            <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+            <span className="text-sm font-semibold text-blue-900 dark:text-blue-200">
               Audit IA Gratuit
             </span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-gray-900">Analysez le potentiel</span>
+            <span className="text-gray-900 dark:text-white">Analysez le potentiel</span>
             <br />
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
               d&apos;automatisation de votre site
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Notre IA scanne votre site en 6 secondes et identifie les opportunités d&apos;automatisation
           </p>
         </motion.div>
@@ -128,13 +128,13 @@ export default function AIAuditScanner() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl md:rounded-3xl border-2 border-gray-200 p-4 sm:p-6 md:p-12 shadow-xl"
+          className="bg-white dark:bg-gray-900 rounded-2xl md:rounded-3xl border-2 border-gray-200 dark:border-gray-800 p-4 sm:p-6 md:p-12 shadow-xl"
         >
           {!isScanning && !showResult && (
             <div className="space-y-6">
               <div className="space-y-3">
-                <label className="block text-lg font-semibold text-gray-900">
-                  <Globe className="w-5 h-5 inline mr-2 text-blue-600" />
+                <label className="block text-lg font-semibold text-gray-900 dark:text-white">
+                  <Globe className="w-5 h-5 inline mr-2 text-blue-600 dark:text-blue-400" />
                   URL de votre site web
                 </label>
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -145,8 +145,8 @@ export default function AIAuditScanner() {
                     onKeyPress={(e) => e.key === 'Enter' && handleScan()}
                     placeholder="https://votre-site.com"
                     aria-label="URL de votre site web"
-                    className={`flex-1 px-4 sm:px-6 py-3 sm:py-4 border-2 rounded-xl sm:rounded-2xl text-base sm:text-lg focus:outline-none transition-colors ${
-                      urlError ? 'border-red-500 focus:border-red-600' : 'border-gray-300 focus:border-blue-600'
+                    className={`flex-1 px-4 sm:px-6 py-3 sm:py-4 border-2 rounded-xl sm:rounded-2xl text-base sm:text-lg focus:outline-none transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-white ${
+                      urlError ? 'border-red-500 focus:border-red-600' : 'border-gray-300 dark:border-gray-700 focus:border-blue-600'
                     }`}
                   />
                   <motion.button

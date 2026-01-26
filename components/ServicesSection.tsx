@@ -92,7 +92,7 @@ function TiltCard({ service, index }: { service: Service; index: number }) {
       
       {/* Carte principale */}
       <div
-        className="relative bg-white p-6 md:p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300 h-full flex flex-col"
+        className="relative bg-white dark:bg-gray-900 p-6 md:p-8 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-xl transition-all duration-300 h-full flex flex-col"
         style={{
           transformStyle: isMobile ? 'flat' : 'preserve-3d',
           transform: isMobile ? 'none' : 'translateZ(75px)',
@@ -108,7 +108,7 @@ function TiltCard({ service, index }: { service: Service; index: number }) {
         
         {/* Titre */}
         <h3
-          className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4"
+          className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4"
           style={{ transform: isMobile ? 'none' : 'translateZ(40px)' }}
         >
           {service.title}
@@ -116,7 +116,7 @@ function TiltCard({ service, index }: { service: Service; index: number }) {
         
         {/* Description */}
         <p
-          className="text-sm md:text-base text-gray-600 mb-4 md:mb-6"
+          className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4 md:mb-6"
           style={{ transform: isMobile ? 'none' : 'translateZ(30px)' }}
         >
           {service.description}
@@ -128,8 +128,8 @@ function TiltCard({ service, index }: { service: Service; index: number }) {
           style={{ transform: isMobile ? 'none' : 'translateZ(20px)' }}
         >
           {service.features.map((feature, i) => (
-            <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-gray-600">
-              <Sparkles className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+            <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400">
+              <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
               <span>{feature}</span>
             </li>
           ))}
@@ -141,7 +141,7 @@ function TiltCard({ service, index }: { service: Service; index: number }) {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full py-2.5 md:py-3 bg-gray-50 hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg font-medium text-sm md:text-base text-gray-900 hover:text-blue-600 transition-all block text-center"
+            className="w-full py-2.5 md:py-3 bg-gray-50 dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 rounded-lg font-medium text-sm md:text-base text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all block text-center"
           >
             En savoir plus
           </motion.a>
@@ -231,10 +231,10 @@ export default function ServicesSection() {
   ]
 
   return (
-    <section id="modernisation" className="py-24 px-6 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    <section id="modernisation" className="py-24 px-6 bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900 relative overflow-hidden">
       {/* Décoration subtile */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-50 rounded-full blur-3xl opacity-50" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50 dark:bg-blue-950/30 rounded-full blur-3xl opacity-50" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-50 dark:bg-indigo-950/30 rounded-full blur-3xl opacity-50" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* En-tête */}
@@ -245,21 +245,21 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 border border-blue-100 rounded-full mb-6">
-            <Sparkles className="w-5 h-5 text-blue-600" />
-            <span className="text-sm font-semibold text-blue-900">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-800 rounded-full mb-6">
+            <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+            <span className="text-sm font-semibold text-blue-900 dark:text-blue-200">
               Nos Services
             </span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
               Des solutions complètes
             </span>
             <br />
-            <span className="text-gray-900">pour votre transformation digitale</span>
+            <span className="text-gray-900 dark:text-white">pour votre transformation digitale</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Découvrez nos services conçus pour propulser votre entreprise vers le succès digital
           </p>
         </motion.div>
@@ -279,7 +279,7 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 dark:text-gray-300 mb-6">
             Prêt à transformer votre entreprise ?
           </p>
           <motion.a

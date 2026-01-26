@@ -37,7 +37,7 @@ export default function BeforeAfterSection() {
   }
 
   return (
-    <section className="py-16 md:py-24 px-4 sm:px-6 bg-white">
+    <section className="py-16 md:py-24 px-4 sm:px-6 bg-white dark:bg-gray-950">
       <div className="max-w-7xl mx-auto">
         {/* En-tête de section */}
         <motion.div
@@ -48,11 +48,11 @@ export default function BeforeAfterSection() {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
               La différence est spectaculaire
             </span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
             Découvrez comment nous transformons des sites obsolètes en expériences modernes et performantes
           </p>
         </motion.div>
@@ -67,7 +67,7 @@ export default function BeforeAfterSection() {
         >
           {/* Container principal avec overflow hidden */}
           <div
-            className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-col-resize select-none border border-gray-200 shadow-xl"
+            className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-col-resize select-none border border-gray-200 dark:border-gray-700 shadow-xl"
             onMouseMove={handleMouseMove}
             onMouseDown={() => setIsDragging(true)}
             onMouseUp={() => setIsDragging(false)}

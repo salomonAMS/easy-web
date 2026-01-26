@@ -67,10 +67,10 @@ export default function AIAutomationSection() {
   ]
 
   return (
-    <section id="automatisations" className="relative py-16 md:py-24 px-6 bg-white overflow-hidden">
+    <section id="automatisations" className="relative py-16 md:py-24 px-6 bg-white dark:bg-gray-950 overflow-hidden">
       {/* Décoration subtile */}
-      <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-blue-50 rounded-full blur-3xl opacity-50" />
-      <div className="absolute bottom-0 left-0 w-64 md:w-96 h-64 md:h-96 bg-indigo-50 rounded-full blur-3xl opacity-50" />
+      <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-blue-50 dark:bg-blue-950/30 rounded-full blur-3xl opacity-50" />
+      <div className="absolute bottom-0 left-0 w-64 md:w-96 h-64 md:h-96 bg-indigo-50 dark:bg-indigo-950/30 rounded-full blur-3xl opacity-50" />
 
       <div className="relative max-w-7xl mx-auto">
         {/* En-tête */}
@@ -86,23 +86,23 @@ export default function AIAutomationSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-800 rounded-full mb-6"
           >
-            <Brain className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-            <span className="text-xs md:text-sm font-semibold text-blue-900">
+            <Brain className="w-4 h-4 md:w-5 md:h-5 text-blue-600 dark:text-blue-400" />
+            <span className="text-xs md:text-sm font-semibold text-blue-900 dark:text-blue-200">
               Workflows Intelligents
             </span>
           </motion.div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6 px-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 md:mb-6 px-4">
             Automatisations IA
             <br />
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
               Conçues par nos Experts
             </span>
           </h2>
 
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
             Concentrez-vous sur votre métier. Nous créons, déployons et gérons vos agents IA 
             de A à Z pour maximiser votre productivité.
           </p>
@@ -121,20 +121,20 @@ export default function AIAutomationSection() {
                   transition={{ delay: index * 0.2, duration: 0.5 }}
                   className="relative group w-full lg:w-56"
                 >
-                  <div className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-xl transition-all duration-300">
+                  <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-xl transition-all duration-300">
                     {/* Icône */}
                     <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center mb-4 mx-auto lg:mx-0`}>
                       <step.icon className="w-7 h-7 text-white" />
                     </div>
                     
                     {/* Titre */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-1 text-center lg:text-left">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1 text-center lg:text-left">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-blue-600 font-semibold mb-3 text-center lg:text-left">
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-semibold mb-3 text-center lg:text-left">
                       {step.subtitle}
                     </p>
-                    <p className="text-sm text-gray-600 text-center lg:text-left">
+                    <p className="text-sm text-gray-600 dark:text-gray-300 text-center lg:text-left">
                       {step.description}
                     </p>
                   </div>
@@ -189,15 +189,15 @@ export default function AIAutomationSection() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -5 }}
-              className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300"
+              className="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-lg transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center mb-4">
-                <workflow.icon className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 flex items-center justify-center mb-4">
+                <workflow.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                 {workflow.title}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                 {workflow.description}
               </p>
             </motion.div>
@@ -209,19 +209,19 @@ export default function AIAutomationSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 md:p-12 border border-blue-100"
+          className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-3xl p-8 md:p-12 border border-blue-100 dark:border-blue-800"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Contenu gauche */}
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6">
-                <Users className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-                <span className="text-xs md:text-sm font-semibold text-blue-900">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-900 rounded-full mb-6">
+                <Users className="w-4 h-4 md:w-5 md:h-5 text-blue-600 dark:text-blue-400" />
+                <span className="text-xs md:text-sm font-semibold text-blue-900 dark:text-blue-200">
                   Service Complet
                 </span>
               </div>
 
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                 Nos experts conçoivent
                 <br />
                 et déploient vos workflows
@@ -229,7 +229,7 @@ export default function AIAutomationSection() {
                 sur mesure
               </h3>
 
-              <p className="text-gray-600 text-base md:text-lg mb-8">
+              <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg mb-8">
                 Pas de self-service. Pas de complexité technique. 
                 Nous gérons l&apos;intégralité du processus de création et de déploiement.
               </p>
@@ -254,10 +254,10 @@ export default function AIAutomationSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-3 bg-white p-4 rounded-xl border border-gray-100"
+                  className="flex items-start gap-3 bg-white dark:bg-gray-900 p-4 rounded-xl border border-gray-100 dark:border-gray-800"
                 >
-                  <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 font-medium text-sm md:text-base">{benefit}</span>
+                  <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 dark:text-gray-300 font-medium text-sm md:text-base">{benefit}</span>
                 </motion.div>
               ))}
             </div>
@@ -284,10 +284,10 @@ export default function AIAutomationSection() {
               transition={{ delay: index * 0.1 }}
               className="text-center"
             >
-              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
+              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent mb-2">
                 {stat.value}
               </div>
-              <div className="text-gray-600 text-sm md:text-base px-4">
+              <div className="text-gray-600 dark:text-gray-300 text-sm md:text-base px-4">
                 {stat.label}
               </div>
             </motion.div>

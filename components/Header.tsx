@@ -91,12 +91,12 @@ export default function Header() {
             </Link>
 
             {/* Navigation desktop */}
-            <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+            <div className="hidden lg:flex items-center gap-3 xl:gap-4">
               {navLinks.map((link, index) => (
                 <Link key={index} href={link.href}>
                   <motion.span
                     whileHover={{ y: -2 }}
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors cursor-pointer text-sm xl:text-base"
+                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors cursor-pointer text-sm whitespace-nowrap"
                   >
                     {link.label}
                   </motion.span>
@@ -112,7 +112,7 @@ export default function Header() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label="Prendre rendez-vous avec Easy Web"
-                className="px-5 xl:px-6 py-2 md:py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 text-sm xl:text-base"
+                className="px-4 xl:px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 text-sm whitespace-nowrap"
               >
                 Prendre RDV
               </motion.a>
