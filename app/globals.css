@@ -28,7 +28,8 @@ body {
 }
 
 /* Transitions globales fluides pour le dark mode */
-* {
+/* Exclure les éléments critiques pour améliorer le LCP */
+:not(.no-transition):not(h1):not(h2):not(main):not(section) {
   transition-property: background-color, border-color, color, fill, stroke;
   transition-duration: 0.5s;
   transition-timing-function: ease;
@@ -115,6 +116,9 @@ nextjs-portal {
   );
   background-size: 200px 100%;
   filter: blur(1px);
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 /* Dark mode: couleurs inversées pour les fibres horizontales */
@@ -163,6 +167,9 @@ nextjs-portal {
   );
   background-size: 100% 200px;
   filter: blur(1px);
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 /* Dark mode: couleurs inversées pour les fibres verticales */

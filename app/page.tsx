@@ -3,10 +3,10 @@
 import dynamic from 'next/dynamic'
 import Header from '@/components/Header'
 import HeroSection from '@/components/HeroSection'
-import PageLoader from '@/components/PageLoader'
 import ErrorBoundary from '@/components/ErrorBoundary'
 
 // Lazy loading des composants lourds pour améliorer les performances
+// PageLoader désactivé pour améliorer le LCP
 const BeforeAfterSection = dynamic(() => import('@/components/BeforeAfterSection'), { ssr: false })
 const ServicesSection = dynamic(() => import('@/components/ServicesSection'))
 const AIAutomationSection = dynamic(() => import('@/components/AIAutomationSection'), { ssr: false })
@@ -22,18 +22,15 @@ const ActivityNotifications = dynamic(() => import('@/components/ActivityNotific
  * - Effet fibre optique sur quadrillage
  * - Workflow visuel responsive
  * - Mobile-first et entièrement responsive
- * - Optimisé pour des performances maximales
+ * - Optimisé pour des performances maximales et LCP < 2s
  */
 export default function Home() {
   return (
     <>
-      {/* Loader professionnel optimisé (1s) */}
-      <PageLoader />
-      
-      {/* Bouton pour remonter en haut */}
+      {/* Bouton pour remonter en haut - Chargé en différé */}
       <ScrollToTop />
       
-      {/* Notifications d'activité en temps réel */}
+      {/* Notifications d'activité en temps réel - Chargé en différé */}
       <ActivityNotifications />
       
       <main className="relative min-h-screen bg-white dark:bg-gray-950">

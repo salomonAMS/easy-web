@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowLeftRight } from 'lucide-react'
+import Image from 'next/image'
 
 /**
  * Section Avant/Après avec slider interactif
@@ -79,9 +80,12 @@ export default function BeforeAfterSection() {
           >
             {/* Image AVANT (obsolète) - Fond fixe */}
             <div className="absolute inset-0 w-full h-full bg-gray-100">
-              <img 
+              <Image 
                 src="/images/après.png" 
                 alt="Site traditionnel - Café Premium" 
+                width={1920}
+                height={1080}
+                loading="lazy"
                 className="w-full h-full object-contain"
               />
             </div>
@@ -93,9 +97,12 @@ export default function BeforeAfterSection() {
                 clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
               }}
             >
-              <img 
+              <Image 
                 src="/images/avant.png" 
                 alt="Site moderne avec IA - Expérience café réinventée" 
+                width={1920}
+                height={1080}
+                loading="lazy"
                 className="w-full h-full object-contain"
               />
             </div>

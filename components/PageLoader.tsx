@@ -24,10 +24,10 @@ export default function PageLoader() {
       })
     }, 100)
 
-    // Masquer le loader après le chargement
+    // Masquer le loader rapidement pour améliorer le LCP
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 1000)
+    }, 500)
 
     return () => {
       clearInterval(interval)

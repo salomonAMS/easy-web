@@ -3,7 +3,12 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  variable: '--font-inter'
+})
 
 const siteUrl = 'https://easy-webco.vercel.app' 
 export const metadata: Metadata = {
@@ -78,6 +83,11 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <head>
+        {/* Preconnect pour les ressources critiques */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Script de thème inline optimisé - s'exécute immédiatement */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
